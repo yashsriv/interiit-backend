@@ -61,7 +61,7 @@ module.exports = function(passport) {
         }
       });
     })
-    .get('/logout', isLoggedInn, function(req, res) {
+    .get('/logout', isLoggedIn, function(req, res) {
       req.logout();
     })
     .get('/csv', isAdmin, function(req, res) {
