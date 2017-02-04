@@ -87,7 +87,6 @@ module.exports = function(passport) {
         if (error) {
           res.sendStatus(500);
         } else if (user.length !== 0) {
-          console.log(user[0]);
           mailOptions.to = user[0].email;
           var timestamp = Date.now();
           var hash = user[0].username + ":" + timestamp + ":" + Config.password;
@@ -103,7 +102,6 @@ module.exports = function(passport) {
           mailOptions.html += '<a href="' + link + '"> Reset Password </a>';
           transporter.sendMail(mailOptions, function(error, info) {
             if (error) {
-              console.log(error);
               res.sendStatus(500);
             } else {
               res.sendStatus(200);
